@@ -11,8 +11,8 @@ import com.example.taggames.databinding.FragmentStartGameBinding
 class StartGameFragment : Fragment() {
 
     lateinit var binding: FragmentStartGameBinding
-    private var delCells = 20
-    private val gray = "#252525"
+    private var deleteCells = 20
+    private val grayColor = Color.parseColor("#252525")
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentStartGameBinding.inflate(inflater)
@@ -23,24 +23,24 @@ class StartGameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.start.setOnClickListener {
-            parentFragmentManager.beginTransaction().replace(R.id.placeholder, SudokuGamesFragment(delCells)).commit()
+            parentFragmentManager.beginTransaction().replace(R.id.placeholder, SudokuGamesFragment(deleteCells)).commit()
         }
 
         binding.easy.setOnClickListener {
-            chooseDifficultyLevel(10)
+            chooseDifficultyLevel(Complexity.Easy.cells)
         }
         binding.medium.setOnClickListener {
-            chooseDifficultyLevel(20)
+            chooseDifficultyLevel(Complexity.Medium.cells)
         }
         binding.hard.setOnClickListener {
-            chooseDifficultyLevel(30)
+            chooseDifficultyLevel(Complexity.Hard.cells)
         }
     }
 
     private fun chooseDifficultyLevel(deleteCells: Int) {
         binding.hard.setTextColor(Color.WHITE)
-        binding.easy.setTextColor(Color.parseColor(gray))
-        binding.medium.setTextColor(Color.parseColor(gray))
-        delCells = deleteCells
+        binding.easy.setTextColor(grayColor)
+        binding.medium.setTextColor(grayColor)
+        this.deleteCells = deleteCells
     }
 }
