@@ -30,6 +30,7 @@ class StartGameFragment : Fragment() {
             chooseDifficultyLevel(Complexity.Easy)
         }
         binding.medium.setOnClickListener {
+            chooseDifficultyLevel(Complexity.Medium)
         }
         binding.hard.setOnClickListener {
             chooseDifficultyLevel(Complexity.Hard)
