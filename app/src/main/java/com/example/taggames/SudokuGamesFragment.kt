@@ -8,7 +8,7 @@ import com.example.taggames.databinding.FragmentSudokuGamesBinding
 
 class SudokuGamesFragment(private val delCells: Int) : Fragment() {
 
-    lateinit var binding: FragmentSudokuGamesBinding
+    private lateinit var binding: FragmentSudokuGamesBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentSudokuGamesBinding.inflate(inflater)

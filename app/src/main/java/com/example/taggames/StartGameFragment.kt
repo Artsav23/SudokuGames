@@ -11,7 +11,7 @@ import com.example.taggames.databinding.FragmentStartGameBinding
 class StartGameFragment : Fragment() {
 
     lateinit var binding: FragmentStartGameBinding
-    private var deleteCells = 20
+    private var deleteCells = Complexity.Medium.cells
     private val grayColor = Color.parseColor("#252525")
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -27,20 +27,19 @@ class StartGameFragment : Fragment() {
         }
 
         binding.easy.setOnClickListener {
-            chooseDifficultyLevel(Complexity.Easy.cells)
+            chooseDifficultyLevel(Complexity.Easy)
         }
         binding.medium.setOnClickListener {
-            chooseDifficultyLevel(Complexity.Medium.cells)
         }
         binding.hard.setOnClickListener {
-            chooseDifficultyLevel(Complexity.Hard.cells)
+            chooseDifficultyLevel(Complexity.Hard)
         }
     }
 
-    private fun chooseDifficultyLevel(deleteCells: Int) {
+    private fun chooseDifficultyLevel(complexity: Complexity) {
         binding.hard.setTextColor(Color.WHITE)
         binding.easy.setTextColor(grayColor)
         binding.medium.setTextColor(grayColor)
-        this.deleteCells = deleteCells
+        this.deleteCells = complexity.cells
     }
 }
