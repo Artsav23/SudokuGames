@@ -17,7 +17,7 @@ class SudokuBoardView(context: Context, attributeSet: AttributeSet): View(contex
     var selectedRow = -1
     var selectedCol = -1
     var delCells = 20
-    var cellsNumberArray:Array<Array<Cell>> = Array(9) { Array(9) { Cell("", true) } }
+    var cellNumberArrays:Array<Array<CellModel>> = Array(size) { Array(size) { CellModel("", true) } }
 
     private val thickLinePaint = Paint().apply {
         color = Color.BLACK
@@ -87,13 +87,13 @@ class SudokuBoardView(context: Context, attributeSet: AttributeSet): View(contex
     private fun addLineNum(r: Int, pos: Int) {
         val startNum = size - pos
         for (c in startNum until size) {
-            cellsNumberArray[r][c].number = (c - startNum + 1).toString()
-            cellsNumberArray[r][c].isEditable = true
+            cellNumberArrays[r][c].number = (c - startNum + 1).toString()
+            cellNumberArrays[r][c].isEditable = true
         }
         val endNum = size - pos
         for (c in 0 until endNum) {
-            cellsNumberArray[r][c].number = (c + pos + 1).toString()
-            cellsNumberArray[r][c].isEditable = true
+            cellNumberArrays[r][c].number = (c + pos + 1).toString()
+            cellNumberArrays[r][c].isEditable = true
         }
     }
 
@@ -103,9 +103,9 @@ class SudokuBoardView(context: Context, attributeSet: AttributeSet): View(contex
         while (randomRow == randomRow2) {
             randomRow2 = interval.random()
         }
-        val array = cellsNumberArray[randomRow]
-        cellsNumberArray[randomRow] = cellsNumberArray[randomRow2]
-        cellsNumberArray[randomRow2] = array
+        val array = cellNumberArrays[randomRow]
+        cellNumberArrays[randomRow] = cellNumberArrays[randomRow2]
+        cellNumberArrays[randomRow2] = array
     }
 
     private fun mixCol(interval: IntRange) {
@@ -114,11 +114,11 @@ class SudokuBoardView(context: Context, attributeSet: AttributeSet): View(contex
         while (randomCol == randomCol2) {
             randomCol2 = interval.random()
         }
-        val array = Array(9, { Cell("", true)})
+        val array = Array(9, { CellModel("", true)})
         for (i in 0 until size) {
-            array[i] = cellsNumberArray[i][randomCol]
-            cellsNumberArray[i][randomCol] = cellsNumberArray[i][randomCol2]
-            cellsNumberArray[i][randomCol2] = array[i]
+            array[i] = cellNumberArrays[i][randomCol]
+            cellNumberArrays[i][randomCol] = cellNumberArrays[i][randomCol2]
+            cellNumberArrays[i][randomCol2] = array[i]
         }
     }
 
@@ -128,9 +128,9 @@ class SudokuBoardView(context: Context, attributeSet: AttributeSet): View(contex
             while (a) {
                 val col = (0..8).random()
                 val row = (0..8).random()
-                if (cellsNumberArray[row][col].number !== "") {
+                if (cellNumberArrays[row][col].number !== "") {
                     a = false
-                    cellsNumberArray[row][col] = Cell("", a)
+                    cellNumberArrays[row][col] = CellModel("", a)
                 }
             }
         }
@@ -139,7 +139,7 @@ class SudokuBoardView(context: Context, attributeSet: AttributeSet): View(contex
     private fun drawFalseCells(canvas: Canvas?) {
         for (r in 0 until size) {
             for (c in 0 until size) {
-                if (!cellsNumberArray[r][c].isEditable) {
+                if (!cellNumberArrays[r][c].isEditable) {
                     drawEmptyCell(r, c, canvas)
                 }
             }
@@ -183,8 +183,8 @@ class SudokuBoardView(context: Context, attributeSet: AttributeSet): View(contex
     }
 
     private fun  checkStroke(i: Int): Boolean {
-        if (Cell("", false) in cellsNumberArray[i]
-            || cellsNumberArray[i].distinct().count() != size) {
+        if (CellModel("", false) in cellNumberArrays[i]
+            || cellNumberArrays[i].distinct().count() != size) {
             return false
         }
         return true
@@ -193,7 +193,7 @@ class SudokuBoardView(context: Context, attributeSet: AttributeSet): View(contex
     private fun trueCells(canvas: Canvas?) {
         for (r in 0 until size) {
             for (c in 0 until  size) {
-                cellsNumberArray[r][c].isEditable = true
+                cellNumberArrays[r][c].isEditable = true
             }
         }
         canvas?.drawColor(Color.GREEN)
@@ -216,7 +216,7 @@ class SudokuBoardView(context: Context, attributeSet: AttributeSet): View(contex
     private fun drawText(canvas: Canvas?) {
         for (r in 0 until size) {
             for (c in 0 until size) {
-                canvas?.drawText(cellsNumberArray[r][c].number, (cellSizePixels * (c) + (cellSizePixels/3f)),
+                canvas?.drawText(cellNumberArrays[r][c].number, (cellSizePixels * (c) + (cellSizePixels/3f)),
                     (cellSizePixels * (r) + (cellSizePixels/1.5f)), textPaint.apply {
                         textSize = cellSizePixels / 2f
                         })
@@ -237,8 +237,8 @@ class SudokuBoardView(context: Context, attributeSet: AttributeSet): View(contex
     }
 
     fun changeNumber(row: Int, column: Int, num: Int) {
-        if (!cellsNumberArray[row][column].isEditable) {
-            cellsNumberArray[row][column].number = num.toString()
+        if (!cellNumberArrays[row][column].isEditable) {
+            cellNumberArrays[row][column].number = num.toString()
             invalidate()
         }
     }

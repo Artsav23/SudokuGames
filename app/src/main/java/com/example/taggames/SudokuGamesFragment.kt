@@ -8,7 +8,7 @@ import com.example.taggames.databinding.FragmentSudokuGamesBinding
 
 class SudokuGamesFragment(private val delCells: Int) : Fragment() {
 
-    lateinit var binding: FragmentSudokuGamesBinding
+    private lateinit var binding: FragmentSudokuGamesBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentSudokuGamesBinding.inflate(inflater)
@@ -23,21 +23,21 @@ class SudokuGamesFragment(private val delCells: Int) : Fragment() {
     }
 
     private fun clickListener() {
-        binding.oneTV.setOnClickListener { onClickNum(1) }
-        binding.twoTV.setOnClickListener { onClickNum(2) }
-        binding.threeTV.setOnClickListener { onClickNum(3) }
-        binding.fourTV.setOnClickListener { onClickNum(4) }
-        binding.fiveTV.setOnClickListener { onClickNum(5) }
-        binding.sixTV.setOnClickListener { onClickNum(6) }
-        binding.sevenTV.setOnClickListener { onClickNum(7) }
-        binding.eightTV.setOnClickListener { onClickNum(8) }
-        binding.nineTV.setOnClickListener { onClickNum(9) }
+        binding.oneButton.setOnClickListener { onClickNumberButton(1) }
+        binding.twoButton.setOnClickListener { onClickNumberButton(2) }
+        binding.threeButton.setOnClickListener { onClickNumberButton(3) }
+        binding.fourButton.setOnClickListener { onClickNumberButton(4) }
+        binding.fiveButton.setOnClickListener { onClickNumberButton(5) }
+        binding.sixButton.setOnClickListener { onClickNumberButton(6) }
+        binding.sevenButton.setOnClickListener { onClickNumberButton(7) }
+        binding.eightButton.setOnClickListener { onClickNumberButton(8) }
+        binding.nineButton.setOnClickListener { onClickNumberButton(9) }
     }
 
-    private fun onClickNum(num: Int) {
+    private fun onClickNumberButton(num: Int) {
         val selectedRow = binding.sudokuBoardView.selectedRow
         val selectedCol = binding.sudokuBoardView.selectedCol
-        if (selectedRow != -1){
+        if (selectedRow != -1) {
             binding.sudokuBoardView.changeNumber(selectedRow,selectedCol, num)
         }
     }
