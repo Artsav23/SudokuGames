@@ -17,12 +17,12 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/oneTV"
+        android:id="@+id/oneButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:background="@drawable/button_number"
-        android:onClick="onClickNum"
+        android:onClick="onClick"
         android:tag="1"
         android:text="1"
         android:textColor="@color/white"
@@ -35,12 +35,11 @@
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
-        android:id="@+id/twoTV"
+        android:id="@+id/twoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:background="@drawable/button_number"
-        android:onClick="onClickNum"
         android:tag="2"
         android:text="2"
         android:textColor="@color/white"
@@ -48,17 +47,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/oneTV"
+        app:layout_constraintStart_toEndOf="@+id/oneButton"
         app:layout_constraintTop_toBottomOf="@+id/sudokuBoardView"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
-        android:id="@+id/threeTV"
+        android:id="@+id/threeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:background="@drawable/button_number"
-        android:onClick="onClickNum"
         android:tag="3"
         android:text="3"
         android:textColor="@color/white"
@@ -66,17 +64,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/twoTV"
+        app:layout_constraintStart_toEndOf="@+id/twoButton"
         app:layout_constraintTop_toBottomOf="@+id/sudokuBoardView"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
-        android:id="@+id/fourTV"
+        android:id="@+id/fourButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:background="@drawable/button_number"
-        android:onClick="onClickNum"
         android:tag="4"
         android:text="4"
         android:textColor="@color/white"
@@ -84,17 +81,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/threeTV"
+        app:layout_constraintStart_toEndOf="@+id/threeButton"
         app:layout_constraintTop_toBottomOf="@+id/sudokuBoardView"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
-        android:id="@+id/fiveTV"
+        android:id="@+id/fiveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:background="@drawable/button_number"
-        android:onClick="onClickNum"
         android:tag="5"
         android:text="5"
         android:textColor="@color/white"
@@ -102,17 +98,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/fourTV"
+        app:layout_constraintStart_toEndOf="@+id/fourButton"
         app:layout_constraintTop_toBottomOf="@+id/sudokuBoardView"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
-        android:id="@+id/sixTV"
+        android:id="@+id/sixButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:background="@drawable/button_number"
-        android:onClick="onClickNum"
         android:tag="6"
         android:text="6"
         android:textColor="@color/white"
@@ -120,17 +115,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/fiveTV"
+        app:layout_constraintStart_toEndOf="@+id/fiveButton"
         app:layout_constraintTop_toBottomOf="@+id/sudokuBoardView"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
-        android:id="@+id/sevenTV"
+        android:id="@+id/sevenButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:background="@drawable/button_number"
-        android:onClick="onClickNum"
         android:tag="7"
         android:text="7"
         android:textColor="@color/white"
@@ -138,17 +132,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/sixTV"
+        app:layout_constraintStart_toEndOf="@+id/sixButton"
         app:layout_constraintTop_toBottomOf="@+id/sudokuBoardView"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
-        android:id="@+id/eightTV"
+        android:id="@+id/eightButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:background="@drawable/button_number"
-        android:onClick="onClickNum"
         android:tag="8"
         android:text="8"
         android:textColor="@color/white"
@@ -156,17 +149,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/sevenTV"
+        app:layout_constraintStart_toEndOf="@+id/sevenButton"
         app:layout_constraintTop_toBottomOf="@+id/sudokuBoardView"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
-        android:id="@+id/nineTV"
+        android:id="@+id/nineButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:background="@drawable/button_number"
-        android:onClick="onClickNum"
         android:tag="9"
         android:text="9"
         android:textColor="@color/white"
@@ -174,7 +166,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/eightTV"
+        app:layout_constraintStart_toEndOf="@+id/eightButton"
         app:layout_constraintTop_toBottomOf="@+id/sudokuBoardView"
         tools:ignore="TouchTargetSizeCheck" />
 
